@@ -29,7 +29,7 @@ echo "$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-z
 mount -a
 
 # Add spack-users group
-groupadd spack-users -g 4000
+groupadd -g 4000 spack-users 
 
 /shared/copy_users.sh
 
