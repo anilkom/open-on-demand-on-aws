@@ -731,7 +731,7 @@ Resources:
             - ood
         config:
           packages:
-            yum:
+            apt:
               awscli: []
               jq: []
               realmd: []
@@ -739,10 +739,6 @@ Resources:
           commands:
             initial_setup:
               command: |
-                setenforce 0
-                sed -i "s/SELINUX=enforcing/SELINUX=permissive/" /etc/selinux/config
-                dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y
-                dnf config-manager --set-enabled powertools -y
                 groupadd spack-users -g 4000
             configure_cert:
               command: !Sub /etc/ood-install/open-on-demand-on-aws-${Branch}/scripts/configure_instance_cert.sh
@@ -770,10 +766,6 @@ Resources:
               uid: 401
             munge:
               uid: 402
-          services:
-            amazon-ssm-agent:
-              enabled: "true"
-              ensureRunning: "true"
         setupInfrastructure:
           commands:
             configure_cloudwatch:

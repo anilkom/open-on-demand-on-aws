@@ -1,9 +1,11 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 
-yum install wget -y -q
-wget https://s3.amazonaws.com/amazoncloudwatch-agent/centos/amd64/latest/amazon-cloudwatch-agent.rpm
-rpm -U ./amazon-cloudwatch-agent.rpm
+mkdir ~/software
+cd ~/software
+sudo apt install wget -y -q
+wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
+sudo apt install -f ./amazon-cloudwatch-agent.deb -y -q
 
 touch /opt/aws/amazon-cloudwatch-agent/bin/config.json
 cat << EOF > /opt/aws/amazon-cloudwatch-agent/bin/config.json
