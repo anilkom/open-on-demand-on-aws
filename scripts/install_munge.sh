@@ -1,6 +1,6 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
-yum install munge munge-libs munge-devel libssh2-devel man2html sshpass -y -q
+sudo apt install -y munge libssh2-1-dev man2html sshpass -y -q
 
 # Try to copy down the file
 aws s3 cp s3://$CLUSTER_CONFIG_BUCKET/munge.key /etc/munge/munge.key
@@ -16,5 +16,5 @@ fi
 chown munge: /etc/munge/munge.key
 chmod 400 /etc/munge/munge.key
 
-systemctl start munge
-systemctl enable munge
+sudo systemctl start munge
+sudo systemctl enable munge
