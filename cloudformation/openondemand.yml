@@ -831,11 +831,6 @@ Resources:
         UserData:
           Fn::Base64: !Sub |
             #!/bin/bash
-            dnf install -y https://s3.${AWS::Region}.amazonaws.com/amazon-ssm-${AWS::Region}/latest/linux_amd64/amazon-ssm-agent.rpm
-            systemctl enable amazon-ssm-agent
-            systemctl start amazon-ssm-agent
-            yum install -y -q epel-release
-            yum install -y -q python3
             cd /opt
             curl -O https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
             tar -xvpf aws-cfn-bootstrap-py3-latest.tar.gz
