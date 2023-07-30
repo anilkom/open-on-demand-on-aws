@@ -69,49 +69,49 @@ Parameters:
 Mappings:
   RegionMap:
     us-east-1:
-      AMIID: ami-01c2b1fd90d50901d
+      AMIID: ami-02675d30b814d1daa
       ALBLogAccount: 127311923021
     us-east-2:
-      AMIID: ami-09c56d1aaec7893bb
+      AMIID: ami-05d251e0fc338590c
       ALBLogAccount: 033677994240
     us-west-1:
-      AMIID: ami-0c552519e34d33e2b
+      AMIID: ami-01973462ceff35e85
       ALBLogAccount: 027434742980
     us-west-2:
-      AMIID: ami-0e97835d93735ae57
+      AMIID: ami-016d1b215ea28dcee
       ALBLogAccount: 797873946194
     ap-northeast-1:
-      AMIID: ami-061612a599ab4a957
+      AMIID: ami-0e250adc27214ced5
       ALBLogAccount: 582318560864
     ap-northeast-2:
-      AMIID: ami-08536dc629652c707
+      AMIID: ami-039c6c8b7212df747
       ALBLogAccount: 600734575887
     ap-south-1:
-      AMIID: ami-0d34439bc3c3e6794
+      AMIID: ami-0b2d10dd2f6c1babd
       ALBLogAccount: 718504428378
     ap-southeast-1:
-      AMIID: ami-047f51f51fcfb9b38
+      AMIID: ami-08fad42036d22d32d
       ALBLogAccount: 114774131450
     ap-southeast-2:
-      AMIID: ami-079721dc03e3366ac
+      AMIID: ami-001ce199760f46907
       ALBLogAccount: 783225319266
     ca-central-1:
-      AMIID: ami-0f9e51aefa079a3f3
+      AMIID: ami-0bb9f02ed5a2dfdc6
       ALBLogAccount: 985666609251
     eu-central-1:
-      AMIID: ami-0d062d04fc349b92d
+      AMIID: ami-0c3472daea3f355b7
       ALBLogAccount: 054676820928
     eu-north-1:
-      AMIID: ami-0ba80a09a6f5d7c9d
+      AMIID: ami-01774536c57ab815f
       ALBLogAccount: 027434742980
     eu-west-1:
-      AMIID: ami-0660a33b46d1311c0
+      AMIID: ami-0ab14756db2442499
       ALBLogAccount: 156460612806
     eu-west-2:
-      AMIID: ami-0dc906b44a3fc35eb
+      AMIID: ami-063e8f8a5f0599010
       ALBLogAccount: 652711504416
     eu-west-3:
-      AMIID: ami-0103dc69ed3abc61f
+      AMIID: ami-029c608efaef0b395
       ALBLogAccount: 009996457667
 Resources:
 
