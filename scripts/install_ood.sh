@@ -1,11 +1,8 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
-dnf module enable ruby:2.7 -y
-dnf module enable nodejs:12 -y
-
-yum install https://yum.osc.edu/ondemand/2.0/ondemand-release-web-2.0-1.noarch.rpm -y -q
-
-yum install openssl ondemand-2.0.28 ondemand-dex krb5-workstation samba-common-tools amazon-efs-utils -y -q
+wget -O /tmp/ondemand-release-web_3.0.0_all.deb https://apt.osc.edu/ondemand/3.0/ondemand-release-web_3.0.0_all.deb
+sudo apt install /tmp/ondemand-release-web_3.0.0_all.deb -y -q
+sudo apt install ondemand ondemand-dex krb5-workstation samba-common-tools  -y -q
 
 export AD_SECRET=$(aws secretsmanager --region $AWS_REGION get-secret-value --secret-id $AD_SECRET_ID --query SecretString --output text)
 export AD_PASSWORD=$(aws secretsmanager --region $AWS_REGION get-secret-value --secret-id $AD_PASSWORD --query SecretString --output text)
@@ -140,7 +137,7 @@ chmod +x /etc/ood/add_user.sh
 #chmod o+w /shared/userlistfile
 
 /opt/ood/ood-portal-generator/sbin/update_ood_portal
-systemctl enable httpd
+systemctl enable apache2
 systemctl enable ondemand-dex
 
 # install bin overrides so sbatch executes on remote node
