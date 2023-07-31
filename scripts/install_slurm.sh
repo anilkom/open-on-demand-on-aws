@@ -24,6 +24,7 @@ sed -i "/^Package:\ slurm-wlm-rsmi-plugin*\ plugin.$/ s|^|#|; /^Package:\ slurm-
 sed -i "/dh_strip\ -pslurm-wlm-rsmi-plugin/d" debian/rules
 
 dpkg-buildpackage -rfakeroot -b -d 2>&1 >> install.lo
+cd ../
 
 sudo apt install -y -f ./slurmctld_23.02.3-2_amd64.deb -f ./slurmd_23.02.3-2_amd64.deb slurmctld_23.02.3-2_amd64.deb slurm-client_23.02.3-2_amd64.deb slurm-wlm-basic-plugins_23.02.3-2_amd64.deb ./slurm-wlm-mysql-plugin_23.02.3-2_amd64.deb
 
