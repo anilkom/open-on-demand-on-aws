@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MIT-0
 touch /var/log/install.txt
 
-mkdir ~/slurm
-cd ~/slurm
+mkdir -p /tmp/software/slurm
+cd /tmp/software/slurm
 git clone https://salsa.debian.org/hpc-team/slurm-wlm.git
 cd slurm-wlm
 cp debian/control debian/control.bkp
@@ -23,7 +23,7 @@ sed -i "/^Package:\ slurm-wlm-rsmi-plugin*\ plugin.$/ s|^|#|; /^Package:\ slurm-
 
 sed -i "/dh_strip\ -pslurm-wlm-rsmi-plugin/d" debian/rules
 
-dpkg-buildpackage -rfakeroot -b -d 2>&1 >> install.lo
+dpkg-buildpackage -rfakeroot -b -d 2>&1 >> /var/log/install.txt
 cd ../
 
 sudo apt install -y -f ./slurmctld_23.02.3-2_amd64.deb -f ./slurmd_23.02.3-2_amd64.deb slurmctld_23.02.3-2_amd64.deb slurm-client_23.02.3-2_amd64.deb slurm-wlm-basic-plugins_23.02.3-2_amd64.deb ./slurm-wlm-mysql-plugin_23.02.3-2_amd64.deb

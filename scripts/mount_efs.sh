@@ -1,6 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 # Installs amazon-efs-utils (https://github.com/aws/efs-utils)
+cd /tmp/software
 sudo apt-get update -y -q
 sudo apt-get -y install git binutils
 git clone https://github.com/aws/efs-utils

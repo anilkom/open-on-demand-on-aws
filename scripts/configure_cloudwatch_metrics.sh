@@ -1,8 +1,8 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 
-mkdir ~/software
-cd ~/software
+mkdir /tmp/software
+cd /tmp/software
 sudo apt install wget -y -q
 wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
 sudo apt install -f ./amazon-cloudwatch-agent.deb -y -q

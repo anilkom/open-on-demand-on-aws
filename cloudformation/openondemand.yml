@@ -725,10 +725,19 @@ Resources:
       AWS::CloudFormation::Init:
         configSets:
           config:
+            - initsetup
+            - aptupdate
             - config
             - setupInfrastructure
             - slurm
             - ood
+        initsetup:
+          commands:
+            initsetupcmd:
+              command: |
+                apt update
+                sed -i '/nrconf{restart}/s/^#//' /etc/needrestart/needrestart.conf
+                sed -i '/nrconf{restart}/s/'i'/'a'/' /etc/needrestart/needrestart.conf
         config:
           packages:
             apt:
