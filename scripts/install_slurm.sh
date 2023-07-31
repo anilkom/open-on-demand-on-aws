@@ -19,28 +19,11 @@ liblua5.1-0-dev  libhwloc-dev  dh-exec  librrd-dev   libipmimonitoring-dev  \
 sed -i "/^\ librocm-smi-dev/d" debian/control
 sed -i "s/^\ librdkafka-dev\,/\ librdkafka-dev/g" debian/control
 
-sed -i "/^Package:\ slurmrestd*slurmrestd.$/ s|^|#|; /^Package:\ slurmrestd/, /slurmrestd.$/ s|^|#|" debian/control
-sed -i "/^Package:\ libslurm-dev*header\ files.$/ s|^|#|; /^Package:\ libslurm-dev/, /header\ files.$/ s|^|#|" debian/control
-sed -i "/^Package:\ libpmi0-dev*^\ files$/ s|^|#|; /^Package:\ libpmi0-dev/, /^\ files$/ s|^|#|" debian/control
-sed -i "/^Package:\ libpmi2-0-dev*^\ files$/ s|^|#|; /^Package:\ libpmi2-0-dev/, /^\ files$/ s|^|#|" debian/control
-sed -i "/^Package:\ slurm-wlm-doc*\ documentation.$/ s|^|#|; /^Package:\ slurm-wlm-doc/, /\ documentation.$/ s|^|#|" debian/control
-sed -i "/^Package:\ slurm-wlm-basic-plugins-dev*\ plugins$/ s|^|#|; /^Package:\ slurm-wlm-basic-plugins-dev/, /\ plugins$/ s|^|#|" debian/control
-sed -i "/^Package:\ slurm-wlm-plugins*\ plugins.$/ s|^|#|; /^Package:\ slurm-wlm-plugins/, /\ plugins.$/ s|^|#|" debian/control
-# sed -i "/^Package:\ slurm-wlm-plugins-dev*\ plugins.$/ s|^|#|; /^Package:\ slurm-wlm-plugins-dev/, /\ plugins.$/ s|^|#|" debian/control
-sed -i "/^Package:\ slurm-wlm-ipmi-plugins*\ plugins.$/ s|^|#|; /^Package:\ slurm-wlm-ipmi-plugins/, /\ plugins.$/ s|^|#|" debian/control
-#sed -i "/^Package:\ slurm-wlm-ipmi-plugins-dev*\ plugins.$/ s|^|#|; /^Package:\ slurm-wlm-ipmi-plugins-dev/, /\ plugins.$/ s|^|#|" debian/control
-sed -i "/^Package:\ slurm-wlm-hdf5-plugin*\ plugin.$/ s|^|#|; /^Package:\ slurm-wlm-hdf5-plugin/, /\ plugin.$/ s|^|#|" debian/control
-# sed -i "/^Package:\ slurm-wlm-hdf5-plugin-dev*\ plugin.$/ s|^|#|; /^Package:\ slurm-wlm-hdf5-plugin-dev/, /\ plugin.$/ s|^|#|" debian/control
 sed -i "/^Package:\ slurm-wlm-rsmi-plugin*\ plugin.$/ s|^|#|; /^Package:\ slurm-wlm-rsmi-plugin/, /\ plugin.$/ s|^|#|" debian/control
-sed -i "/^Package:\ slurm-wlm-influxdb-plugin*\ plugin.$/ s|^|#|; /^Package:\ slurm-wlm-influxdb-plugin/, /\ plugin.$/ s|^|#|" debian/control
-sed -i "/^Package:\ slurm-wlm-rrd-plugin*\ plugin.$/ s|^|#|; /^Package:\ slurm-wlm-rrd-plugin/, /\ plugin.$/ s|^|#|" debian/control
-sed -i "/^Package:\ slurm-wlm-elasticsearch-plugin*\ plugin.$/ s|^|#|; /^Package:\ slurm-wlm-elasticsearch-plugin/, /\ plugin.$/ s|^|#|" debian/control
-sed -i "/^Package:\ slurm-wlm-jwt-plugin*\ plugin\.$/ s|^|#|; /^Package:\ slurm-wlm-jwt-plugin/, /\ plugin\.$/ s|^|#|" debian/control
-# sed -i "/^Package:\ slurm-wlm-jwt-plugin*\ plugin.$/ s|^|#|; /^Package:\ slurm-wlm-jwt-plugin/, /\ plugin.$/ s|^|#|" debian/control
-sed -i "/^Package:\ slurm-wlm-kafka-plugin*\ plugin.$/ s|^|#|; /^Package:\ slurm-wlm-kafka-plugin/, /\ plugin.$/ s|^|#|" debian/control
-sed -i "/^Package:\ slurm-wlm-mysql-plugin-dev*\ plugin.$/ s|^|#|; /^Package:\ slurm-wlm-mysql-plugin-dev/, /\ plugin.$/ s|^|#|" debian/control
-sed -i "/^Package:\ libpam-slurm*\ module$/ s|^|#|; /^Package:\ libpam-slurm/, /\ module$/ s|^|#|" debian/control
 
+sed -i "/dh_strip\ -pslurm-wlm-rsmi-plugin/d" debian/rules
+
+dpkg-buildpackage -rfakeroot -b -d 2>&1 >> install.lo
 
 sudo apt upgrade -f ./slurmctld_23.02.3-2_amd64.deb -f ./slurmd_23.02.3-2_amd64.deb slurmctld_23.02.3-2_amd64.deb slurm-client_23.02.3-2_amd64.deb slurm-wlm-basic-plugins_23.02.3-2_amd64.deb ./slurm-wlm-mysql-plugin_23.02.3-2_amd64.deb
 
